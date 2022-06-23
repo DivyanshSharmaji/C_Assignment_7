@@ -1,0 +1,159 @@
+Assignment-7
+
+
+1. Write a program to check whether a given number is positive or non positive
+2. Write a program to check whether a given number is divisible by 5 or not
+3. Write a program to check whether a given number is even or odd
+4. Write a program to check whether a given number is even or odd without using the modulus operator.
+5. Write a program to check whether a given number is a three digit number or not.
+6. Write a program to find greater between two numbers. Print one number if both numbers are the same.
+7. Write a program which takes the cost price and selling price of a product from the user. Now calculate and print profit or loss percentage.
+8. Write a program to take marks of 5 subjects from the user. Assume marks are given out of 100 and passing marks is 33. Now display whether
+   the candidate passed the examination or failed. 
+9. Write a program to check whether a given alphabet is in uppercase or lowercase.
+10. A policy agent has to inform about the amount a client will get after maturity of the scheme. If the client comes in the age group 18 to
+    25 then the policy period is 30 years, if the client comes in the age group 25 to 40 then the policy period is 20 years and if the 
+    client comes in the age group 40 to 55 then the policy period is 10 years. Policy is not for other age groups. Clients can invest any
+    amount lesser than or equal to 100000 but must be greater than or equal to 10000. Rate of return is 5% using simple interest. Write a 
+    program to take age and investment amount. Print the maturity amount a client will get.
+
+Solutions of assignment 7 :-
+
+Ans.1 :- #include<stdio.h>
+	   int main(){
+  	   	int num;
+    	   	printf("Enter the number :\n");
+    		scanf("%d",&num);
+	    	printf(num>0?"positive":"non-positive");
+    	   	return 0;
+	   }
+
+Ans.2 :- #include<stdio.h>
+	   int main(){
+  	   	int num;
+    	   	printf("Enter the number :\n");
+    		scanf("%d",&num);
+	    	printf(num%5==0?"Divisible by 5":"Not divisible by 5");
+    	   	return 0;
+	   }
+
+Ans.3 :- #include<stdio.h>
+	   int main(){
+  	   	int num;
+    	   	printf("Enter the number :\n");
+    		scanf("%d",&num);
+	    	printf(num%2?"Number is odd":"Number is even");
+    	   	return 0;
+	   }
+
+Ans.4 :- #include<stdio.h>
+	   int main(){
+  	   	int num;
+    	   	printf("Enter the number :\n");
+    		scanf("%d",&num);
+	    	printf(num&1?"Number is odd":"Number is even");
+    	   	return 0;
+	   }
+
+Ans.5 :- #include<stdio.h>
+	   int main(){
+  	   	int num;
+    	   	printf("Enter the number :\n");
+    		scanf("%d",&num);
+	    	printf(((num/100)<10 && (num/100)!=0)?"Number is 3 digit":"Number is not 3 digit");
+    	   	return 0;
+	   }
+
+Ans.6 :- #include<stdio.h>
+	   int main(){
+  	   	int num1,num2;
+    	   	printf("Enter two numbers :\n");
+    		scanf("%d %d",&num1,&num2);
+	    	if(num1==num2)
+			printf("1");
+		else if(num1>num2)
+			printf("%d is greater than %d",num1,num2);
+		else
+			printf("%d is greater than %d",num2,num1);
+    	   	return 0;
+	   }
+
+Ans.7 :- #include<stdio.h>
+	   int main(){
+  	   	int CP,SP,PL; //CP-->cost price, SP-->selling price, PL-->profit/loss
+		float per;
+    	   	printf("Enter the cost price and the selling price :\n");
+    		scanf("%d %d",&CP,&SP);
+		PL = SP-CP;
+		per = (float)PL/CP*100;
+	    	if(PL==0)
+			printf("No profit and No loss");
+		else if(PL>0)
+			printf("Profit percentage :- %0.2f%%",per);
+		else
+			printf("Loss percentage :- %0.2f%%",per);
+    	   	return 0;
+	   }
+
+Ans.8 :- #include<stdio.h>
+	   int main(){
+  	   	int s1,s2,s3,s4,s5;
+    	   	printf("Enter the marks of subject 1 :\n");
+    		scanf("%d",&s1);
+	    	printf("Enter the marks of subject 2 :\n");
+    		scanf("%d",&s2);
+		printf("Enter the marks of subject 3 :\n");
+    		scanf("%d",&s3);
+		printf("Enter the marks of subject 4 :\n");
+    		scanf("%d",&s4);
+		printf("Enter the marks of subject 5 :\n");
+    		scanf("%d",&s5);
+		if(s1>33 && s2>33 && s3>33 && s4>33 && s5>33)
+			printf("Passed");
+		else
+			printf("Failed");
+    	   	return 0;
+	   }
+
+Ans.9 :- #include<stdio.h>
+	   int main(){
+	 	char ch;
+		printf("Enter an alphabet :\n");
+		scanf("%c",&ch);
+		if(ch>='A' && ch<='Z')
+			printf("Entered alphabet is in Uppercase");
+		else
+			printf("Entered alphabet is in lowercase");
+		return 0;
+	   }
+
+Ans.10 :-   #include<stdio.h>
+  		 int main(){
+   			int age,amt;
+   			float tot;
+   			printf("Age : ");
+   			scanf("%d",&age);
+   			printf("Amount : ");
+   			scanf("%d",&amt);
+   			if(amt>=10000 && amt<=100000){
+        			if(age>=18 && age<=25){
+             			tot = (float)(amt*5*30/100)+amt;
+             			printf("Maturity amount :- %0.2f\n",tot);
+        			}
+        			else if(age>=25 && age<=40){
+             			tot = (float)(amt*5*20/100)+amt;
+             			printf("Maturity amount :- %0.2f\n",tot);
+        			}
+        			else if(age>=40 && age<=55){
+             			tot = (float)(amt*5*10/100)+amt;
+             			printf("Maturity amount :- %0.2f\n",tot);
+        			}
+        			else{
+        				printf("Policy not applicable!");
+        			}
+   			}
+   			else{
+        			printf("Policy not applicable!");
+   			}
+			return 0;
+  		}
